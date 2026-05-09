@@ -499,6 +499,166 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
   z-index: -4;
 }
 
+/************ Project Page Css ************/
+.project-navbar {
+  padding: 18px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: #121212;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.project-navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.project-navbar-link {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  font-size: 17px;
+  opacity: 0.75;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.project-navbar-link:hover {
+  color: #fff;
+  opacity: 1;
+}
+.project-navbar-link:first-child:hover .project-navbar-arrow {
+  transform: translateX(-4px);
+}
+.project-navbar-arrow {
+  display: inline-block;
+  font-size: 22px;
+  transition: transform 0.2s ease-in-out;
+}
+.project-navbar-icon {
+  width: 22px;
+  height: 22px;
+}
+.project-page {
+  padding: 130px 0 80px 0;
+  background-color: #121212;
+  min-height: 100vh;
+}
+.project-page-bx {
+  background: #151515;
+  border-radius: 64px;
+  padding: 50px 60px;
+  color: #fff;
+}
+.project-page-image {
+  width: 100%;
+  border-radius: 30px;
+  margin-bottom: 36px;
+  display: block;
+}
+.project-page-embed-wrap {
+  position: relative;
+  margin-bottom: 36px;
+}
+.project-page-embed {
+  width: 100%;
+  height: 720px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  display: block;
+  background: #1a1a1a;
+}
+.project-page-embed-open {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 14px;
+  background: rgba(18, 18, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease-in-out;
+}
+.project-page-embed-open:hover {
+  color: #fff;
+  background: rgba(170, 54, 124, 0.6);
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .project-page-embed {
+    height: 480px;
+    border-radius: 20px;
+  }
+}
+.project-page h1 {
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.project-page-tagline {
+  background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  margin-bottom: 24px;
+}
+.project-page-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.project-page-tech span {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(170, 54, 124, 0.18);
+  border: 1px solid rgba(170, 54, 124, 0.5);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+.project-page-desc {
+  color: #cfcfcf;
+  font-size: 16px;
+  line-height: 1.7em;
+  letter-spacing: 0.3px;
+}
+@media (max-width: 768px) {
+  .project-page-bx {
+    padding: 36px 24px;
+    border-radius: 32px;
+  }
+  .project-page h1 {
+    font-size: 32px;
+  }
+  .project-navbar-link span:not(.project-navbar-arrow) {
+    display: none;
+  }
+}
+
+.proj-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.proj-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
 /************ Projects Css ************/
 .project {
   padding: 80px 0;
@@ -611,6 +771,27 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
   font-weight: 400;
   font-size: 15px;
   letter-spacing: 0.8px;
+}
+.proj-tech {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 0 16px;
+}
+.proj-tech .proj-tech-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.4px;
+  color: #fff;
+  backdrop-filter: blur(4px);
 }
 .background-image-right {
   top: 20%;
