@@ -1,14 +1,92 @@
-import meter1 from '../../assets/img/meter1.svg';
-import meter2 from '../../assets/img/meter2.svg';
-import meter3 from '../../assets/img/meter3.svg';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import colorSharp from '../../assets/img/color-sharp.png';
 
+const SkillCircle = ({ percent, id }) => {
+  const size = 204;
+  const stroke = 14;
+  const radius = (size - stroke) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (percent / 100) * circumference;
+  const gradId = `skill-grad-${id}`;
+
+  return (
+    <svg
+      className="skill-circle"
+      width={size}
+      height={size}
+      viewBox={`0 0 ${size} ${size}`}
+    >
+      <defs>
+        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#AA367C" />
+          <stop offset="100%" stopColor="#4A2FBD" />
+        </linearGradient>
+      </defs>
+      <circle
+        cx={size / 2}
+        cy={size / 2}
+        r={radius}
+        fill="none"
+        stroke="rgba(255, 255, 255, 0.08)"
+        strokeWidth={stroke}
+      />
+      <circle
+        cx={size / 2}
+        cy={size / 2}
+        r={radius}
+        fill="none"
+        stroke={`url(#${gradId})`}
+        strokeWidth={stroke}
+        strokeDasharray={circumference}
+        strokeDashoffset={offset}
+        strokeLinecap="round"
+        transform={`rotate(-90 ${size / 2} ${size / 2})`}
+        style={{ transition: 'stroke-dashoffset 1s ease-out' }}
+      />
+      <text
+        x="50%"
+        y="50%"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        fill="#fff"
+        fontSize="36"
+        fontWeight="700"
+        fontFamily="Centra, sans-serif"
+      >
+        {percent}%
+      </text>
+    </svg>
+  );
+};
+
+const skills = [
+  { name: 'HTML / CSS / Sass', percent: 90 },
+  { name: 'JavaScript', percent: 90 },
+  { name: 'React', percent: 85 },
+  { name: 'Redux', percent: 80 },
+  { name: 'TypeScript', percent: 80 },
+  { name: 'Bootstrap', percent: 85 },
+  { name: 'Node.js', percent: 85 },
+  { name: 'Express', percent: 80 },
+  { name: 'NestJS', percent: 75 },
+  { name: 'MongoDB', percent: 75 },
+  { name: 'MySQL / Prisma', percent: 75 },
+  { name: 'Unit Testing', percent: 75 },
+];
+
+const aiSkills = [
+  { name: 'Claude Code', percent: 90 },
+  { name: 'Cursor', percent: 85 },
+  { name: 'GitHub Copilot', percent: 85 },
+  { name: 'Prompt Engineering', percent: 85 },
+  { name: 'Context Management', percent: 80 },
+  { name: 'AI Code Review', percent: 75 },
+];
+
 export const Skills = () => {
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
@@ -40,47 +118,27 @@ export const Skills = () => {
                   infinite={true}
                   className="owl-carousel owl-theme skill-slider"
                 >
-                  <div className="item">
-                    <img src={meter1} alt="Image" />
-                    <h5>Web Development</h5>
-                  </div>
-                  <div className="item">
-                    <img src={meter2} alt="Image" />
-                    <h5>Brand Identity</h5>
-                  </div>
-                  <div className="item">
-                    <img src={meter3} alt="Image" />
-                    <h5>Logo Design</h5>
-                  </div>
-                  <div className="item">
-                    <img src={meter1} alt="Image" />
-                    <h5>Web Development</h5>
-                  </div>
+                  {skills.map((skill, idx) => (
+                    <div className="item" key={`a-${idx}`}>
+                      <SkillCircle percent={skill.percent} id={`a-${idx}`} />
+                      <h5>{skill.name}</h5>
+                    </div>
+                  ))}
                 </Carousel>
               </div>
               <div className="skills-details">
-                <h3>Full Stack</h3>
+                <h3>Vibe Coding</h3>
                 <Carousel
                   responsive={responsive}
                   infinite={true}
                   className="owl-carousel owl-theme skill-slider"
                 >
-                  <div className="item">
-                    <img src={meter1} alt="Image" />
-                    <h5>Web Development</h5>
-                  </div>
-                  <div className="item">
-                    <img src={meter2} alt="Image" />
-                    <h5>Brand Identity</h5>
-                  </div>
-                  <div className="item">
-                    <img src={meter3} alt="Image" />
-                    <h5>Logo Design</h5>
-                  </div>
-                  <div className="item">
-                    <img src={meter1} alt="Image" />
-                    <h5>Web Development</h5>
-                  </div>
+                  {aiSkills.map((skill, idx) => (
+                    <div className="item" key={`b-${idx}`}>
+                      <SkillCircle percent={skill.percent} id={`b-${idx}`} />
+                      <h5>{skill.name}</h5>
+                    </div>
+                  ))}
                 </Carousel>
               </div>
             </div>
