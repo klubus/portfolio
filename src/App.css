@@ -326,9 +326,132 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
   border-right: 0.08em solid #666;
 }
 
+/************ About Css ************/
+.about {
+  padding: 0 0 0 0;
+  position: relative;
+}
+.about-bx {
+  background: #151515;
+  border-radius: 64px;
+  padding: 60px 70px;
+  margin-top: -60px;
+}
+.about h2 {
+  font-size: 45px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.about-grid {
+  margin: 0;
+}
+.about-col {
+  padding: 0 30px;
+}
+.about-col + .about-col {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.about-col h3 {
+  background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  margin-bottom: 24px;
+}
+.about-entry {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 14px;
+  padding: 18px 22px 18px 26px;
+  margin-bottom: 18px;
+  transition: background 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+.about-entry::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 18px;
+  bottom: 18px;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #aa367c 0%, #4a2fbd 100%);
+}
+.about-entry:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(2px);
+}
+.about-entry:last-child {
+  margin-bottom: 0;
+}
+.about-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.about-entry-head h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.4px;
+}
+.about-entry-period {
+  display: inline-block;
+  padding: 3px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+  background: rgba(170, 54, 124, 0.18);
+  border: 1px solid rgba(170, 54, 124, 0.5);
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.about-entry-org {
+  background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  margin-bottom: 8px;
+}
+.about-entry-desc {
+  color: #cfcfcf;
+  font-size: 15px;
+  line-height: 1.6em;
+  letter-spacing: 0.3px;
+}
+@media (max-width: 768px) {
+  .about-bx {
+    padding: 40px 24px;
+    border-radius: 32px;
+  }
+  .about-col {
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+  .about-col + .about-col {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    margin-bottom: 0;
+  }
+  .about h2 {
+    font-size: 32px;
+  }
+}
+
 /************ Skills Css ************/
 .skill {
-  padding: 0 0 50px 0;
+  padding: 60px 0 50px 0;
   position: relative;
 }
 .skill-bx {
@@ -336,7 +459,7 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
   border-radius: 64px;
   text-align: center;
   padding: 60px 50px;
-  margin-top: -60px;
+  margin-top: 0;
 }
 .skill h2 {
   font-size: 45px;

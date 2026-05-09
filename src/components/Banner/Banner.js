@@ -79,11 +79,20 @@ export const Banner = () => {
                     </span>
                   </h1>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    I have been working in the IT industry for nearly 5 years,
+                    primarily as a tester. Throughout my career, I have gained
+                    extensive experience with tools and technologies such as
+                    Git (including independent release management), and with
+                    programming languages like C#, JavaScript, and TypeScript.
+                    On a daily basis, I use Playwright for test automation. I
+                    also have a working knowledge of SQL and basic Linux
+                    skills.
+                  </p>
+                  <p>
+                    Recently, I obtained the Atlassian certification (ACP-620)
+                    for Jira and passed the FCE (B2 English) exam. I am
+                    currently looking to transition into a software developer
+                    role — feel free to check out my projects on GitHub.
                   </p>
                 </div>
               )}
