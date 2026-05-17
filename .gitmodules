@@ -4,3 +4,6 @@
 [submodule "projects/waiter-app"]
 	path = projects/waiter-app
 	url = https://github.com/klubus/waiter-app.git
+[submodule "projects/project-pizzeria"]
+	path = projects/project-pizzeria
+	url = https://github.com/klubus/project-pizzeria.git

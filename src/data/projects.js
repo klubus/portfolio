@@ -3,6 +3,7 @@ import projImg2 from '../assets/img/project-img2.png';
 import projImg3 from '../assets/img/project-img3.png';
 import elTigreThumb from '../assets/img/el-tigre-thumb.png';
 import waiterAppThumb from '../assets/img/waiter-app-thumb.png';
+import pizzeriaThumb from '../assets/img/project-pizzeria-thumb.png';
 
 // =====================================================================
 // Add your projects here. Each project needs a unique `slug` (used as
@@ -52,6 +53,18 @@ export const projects = [
     embedUrl: '/projects/waiter-app/index.html',
     category: 'fullstack',
     tech: ['React', 'Redux', 'json-server', 'CSS'],
+  },
+  {
+    slug: 'project-pizzeria',
+    title: 'Pizzeria',
+    description: 'Online pizzeria with menu, cart and booking',
+    longDescription:
+      'TODO — replace with real description of the project, features, and what it demonstrates.',
+    imgUrl: pizzeriaThumb,
+    githubUrl: 'https://github.com/klubus/project-pizzeria',
+    embedUrl: '/projects/project-pizzeria/index.html',
+    category: 'fullstack',
+    tech: ['HTML', 'Sass', 'JavaScript', 'ES Modules'],
   },
   {
     slug: 'example-fullstack-1',
