@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /krystian-kluba/portfolio/
+
+# Real files and directories are served as-is (assets, embedded projects).
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Anything else falls through to the SPA — survives refresh on deep
+# React Router URLs like /krystian-kluba/portfolio/project/el-tigre.
+RewriteRule . /krystian-kluba/portfolio/index.html [L]

@@ -30,7 +30,7 @@ const ProjectLayout = () => (
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<HomeLayout />} />
         <Route path="/project/:slug" element={<ProjectLayout />} />
