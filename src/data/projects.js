@@ -2,6 +2,7 @@ import projImg1 from '../assets/img/project-img1.png';
 import projImg2 from '../assets/img/project-img2.png';
 import projImg3 from '../assets/img/project-img3.png';
 import elTigreThumb from '../assets/img/el-tigre-thumb.png';
+import waiterAppThumb from '../assets/img/waiter-app-thumb.png';
 
 // =====================================================================
 // Add your projects here. Each project needs a unique `slug` (used as
@@ -39,6 +40,18 @@ export const projects = [
     embedUrl: '/projects/el-tigre/index.html',
     category: 'fullstack',
     tech: ['HTML', 'Sass', 'JavaScript', 'Handlebars'],
+  },
+  {
+    slug: 'waiter-app',
+    title: 'Waiter App',
+    description: 'Restaurant table management',
+    longDescription:
+      'TODO — replace with real description of the project, features, and what it demonstrates.',
+    imgUrl: waiterAppThumb,
+    githubUrl: 'https://github.com/klubus/waiter-app',
+    embedUrl: '/projects/waiter-app/index.html',
+    category: 'fullstack',
+    tech: ['React', 'Redux', 'json-server', 'CSS'],
   },
   {
     slug: 'example-fullstack-1',

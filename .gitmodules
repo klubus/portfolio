@@ -1,3 +1,6 @@
 [submodule "projects/el-tigre"]
 	path = projects/el-tigre
 	url = https://github.com/klubus/project-el-tigre.git
+[submodule "projects/waiter-app"]
+	path = projects/waiter-app
+	url = https://github.com/klubus/waiter-app.git
