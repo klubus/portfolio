@@ -1,6 +1,5 @@
 import projImg1 from '../assets/img/project-img1.png';
 import projImg2 from '../assets/img/project-img2.png';
-import projImg3 from '../assets/img/project-img3.png';
 import elTigreThumb from '../assets/img/el-tigre-thumb.png';
 import waiterAppThumb from '../assets/img/waiter-app-thumb.png';
 import pizzeriaThumb from '../assets/img/project-pizzeria-thumb.png';
@@ -65,40 +64,6 @@ export const projects = [
     embedUrl: '/projects/project-pizzeria/index.html',
     category: 'fullstack',
     tech: ['HTML', 'Sass', 'JavaScript', 'ES Modules'],
-  },
-  {
-    slug: 'example-fullstack-1',
-    title: 'Example Full Stack App',
-    description: 'Design & Development',
-    longDescription:
-      'Detailed description of what this project does, the problem it solves, technical decisions made along the way, and what you learned. Replace this with real content.',
-    imgUrl: projImg1,
-    githubUrl: 'https://github.com/klubus/example-fullstack-1',
-    // embedUrl: 'https://example-fullstack-1.vercel.app',
-    // embedUrl: '/projects/example-fullstack-1/index.html',
-    category: 'fullstack',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-  },
-  {
-    slug: 'example-fullstack-2',
-    title: 'Another Full Stack App',
-    description: 'Design & Development',
-    longDescription:
-      'Replace this with real content. Talk about features, architecture, and the experience of building it.',
-    imgUrl: projImg2,
-    githubUrl: 'https://github.com/klubus/example-fullstack-2',
-    category: 'fullstack',
-    tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
-  },
-  {
-    slug: 'example-fullstack-3',
-    title: 'Third Full Stack App',
-    description: 'Design & Development',
-    longDescription: 'Replace this with real content.',
-    imgUrl: projImg3,
-    githubUrl: 'https://github.com/klubus/example-fullstack-3',
-    category: 'fullstack',
-    tech: ['NestJS', 'React', 'MySQL'],
   },
   {
     slug: 'example-vibe-1',
