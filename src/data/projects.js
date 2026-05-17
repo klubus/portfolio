@@ -1,6 +1,7 @@
 import projImg1 from '../assets/img/project-img1.png';
 import projImg2 from '../assets/img/project-img2.png';
 import projImg3 from '../assets/img/project-img3.png';
+import elTigreThumb from '../assets/img/el-tigre-thumb.png';
 
 // =====================================================================
 // Add your projects here. Each project needs a unique `slug` (used as
@@ -27,6 +28,18 @@ import projImg3 from '../assets/img/project-img3.png';
 // screenshot from `imgUrl`.
 // =====================================================================
 export const projects = [
+  {
+    slug: 'el-tigre',
+    title: 'El Tigre',
+    description: 'Coffee shop landing page',
+    longDescription:
+      'A landing page for a fictional Venezuelan coffee brand, with product listing, hero rotation, and contact section. Built with vanilla JavaScript, Sass and Handlebars templates, with product data served from a JSON file.',
+    imgUrl: elTigreThumb,
+    githubUrl: 'https://github.com/klubus/project-el-tigre',
+    embedUrl: '/projects/el-tigre/index.html',
+    category: 'fullstack',
+    tech: ['HTML', 'Sass', 'JavaScript', 'Handlebars'],
+  },
   {
     slug: 'example-fullstack-1',
     title: 'Example Full Stack App',

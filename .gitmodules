@@ -1,0 +1,3 @@
+[submodule "projects/el-tigre"]
+	path = projects/el-tigre
+	url = https://github.com/klubus/project-el-tigre.git
