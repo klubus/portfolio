@@ -5,9 +5,13 @@ const ROOT = path.resolve(__dirname, '..');
 const PROJECTS_SRC = path.join(ROOT, 'projects');
 const PROJECTS_DEST = path.join(ROOT, 'public', 'projects');
 
-// Files/folders skipped when a project has no dist/ — these are source-only
-// or tooling-only artifacts that have no business in the served output.
-const SKIP_WITHOUT_DIST = new Set([
+// Build-output folders we look for, in priority order.
+const OUTPUT_CANDIDATES = ['dist', 'build'];
+
+// Files/folders skipped when a project has no recognized output folder —
+// these are source-only or tooling-only artifacts that have no business
+// in the served output.
+const SKIP_WITHOUT_OUTPUT = new Set([
   '.git',
   '.gitignore',
   '.gitmodules',
@@ -47,7 +51,6 @@ function main() {
   for (const entry of entries) {
     const name = entry.name;
     const srcDir = path.join(PROJECTS_SRC, name);
-    const distDir = path.join(srcDir, 'dist');
     const destDir = path.join(PROJECTS_DEST, name);
 
     if (isEmptyDir(srcDir)) {
@@ -58,20 +61,25 @@ function main() {
       continue;
     }
 
-    if (
-      fs.existsSync(distDir) &&
-      fs.statSync(distDir).isDirectory() &&
-      !isEmptyDir(distDir)
-    ) {
-      fs.cpSync(distDir, destDir, { recursive: true });
-      console.log(`[copy-projects] ${name}: copied dist/`);
+    const outputName = OUTPUT_CANDIDATES.find((candidate) => {
+      const dir = path.join(srcDir, candidate);
+      return (
+        fs.existsSync(dir) &&
+        fs.statSync(dir).isDirectory() &&
+        !isEmptyDir(dir)
+      );
+    });
+
+    if (outputName) {
+      fs.cpSync(path.join(srcDir, outputName), destDir, { recursive: true });
+      console.log(`[copy-projects] ${name}: copied ${outputName}/`);
       continue;
     }
 
     fs.mkdirSync(destDir, { recursive: true });
     const items = fs
       .readdirSync(srcDir, { withFileTypes: true })
-      .filter((item) => !SKIP_WITHOUT_DIST.has(item.name));
+      .filter((item) => !SKIP_WITHOUT_OUTPUT.has(item.name));
 
     for (const item of items) {
       fs.cpSync(
@@ -80,7 +88,7 @@ function main() {
         { recursive: true },
       );
     }
-    console.log(`[copy-projects] ${name}: copied folder (no dist/)`);
+    console.log(`[copy-projects] ${name}: copied folder (no dist/ or build/)`);
   }
 
   console.log('[copy-projects] done');

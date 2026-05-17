@@ -140,10 +140,18 @@ zawartości.
   konkretną wersję, dodaj tag w repo projektu i ręcznie checkoutuj go w
   submodule (`cd projects/el-tigre && git checkout v1.0`).
 
-- **Konwencja "dist/"** — jeśli przyszły projekt buduje się do innego folderu
-  (np. `out/`, `build/`), albo zmień jego konfigurację buildu, albo rozszerz
-  `copy-projects.js` o czytanie nazwy folderu np. z pliku `.portfolio-output`.
-  Dziś nie ma takiej potrzeby.
+- **Konwencja folderu buildu** — `copy-projects.js` próbuje folderów w
+  kolejności: `dist/`, potem `build/`. To pokrywa Vite / Astro / projekty
+  ręczne (`dist/`) oraz CRA (`build/`) bez żadnej konfiguracji po stronie
+  konkretnego projektu. Jeśli kiedyś trafi się projekt z innym output
+  folderem (np. Next.js `out/`), dodaj jego nazwę do `OUTPUT_CANDIDATES`
+  w skrypcie.
+
+- **CRA i ścieżki assetów** — dla projektu CRA dodaj `"homepage": "."` w
+  `package.json` przed `npm run build`. Bez tego CRA emituje absolutne
+  ścieżki typu `/static/...`, które w iframe portfolio próbują się
+  rozwiązać względem roota portfolio i kończą jako 404. Dla Vite
+  ustaw `base: './'` w `vite.config`.
 
 - **El Tigre — modyfikacja vs oryginał** — w trakcie sesji odkryłem, że
   `src/js/app.js` miało niezacommitowaną zmianę adaptującą stronę pod
