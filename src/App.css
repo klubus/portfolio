@@ -743,6 +743,13 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 24px;
+  aspect-ratio: 519 / 380;
+}
+.proj-imgbx img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .proj-imgbx::before {
   content: '';

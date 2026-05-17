@@ -30,6 +30,58 @@ function isEmptyDir(dir) {
   return fs.readdirSync(dir).length === 0;
 }
 
+// Patch the project's index.html so it behaves inside the portfolio iframe:
+//   1. <base href="/projects/<slug>/"> keeps relative URLs (./static/...,
+//      ./db/app.json, ...) resolving to the project's folder no matter
+//      what we do to the history state.
+//   2. The inline script rewrites the iframe's pathname to '/' before the
+//      SPA bundle runs, so client-side routers (BrowserRouter, etc.) match
+//      their own routes on first load instead of falling through to a
+//      catch-all 404.
+//   3. The click handler turns absolute-path anchor clicks (<a href="/">,
+//      including react-bootstrap's Navbar.Brand) into in-iframe SPA
+//      navigation via history.pushState + popstate — without that, the
+//      browser would do a full navigation to portfolio's root.
+function patchIndexForIframe(destDir, slug) {
+  const indexPath = path.join(destDir, 'index.html');
+  if (!fs.existsSync(indexPath)) return;
+
+  const html = fs.readFileSync(indexPath, 'utf8');
+  if (html.includes('data-portfolio-embed')) return;
+
+  const basePath = `/projects/${slug}/`;
+  const injection =
+    `<base href="${basePath}">` +
+    `<script data-portfolio-embed="${slug}">` +
+    `(function(){` +
+    `var base=${JSON.stringify(basePath)};` +
+    `var p=window.location.pathname;` +
+    `if(p.indexOf(base)===0){` +
+    `var inside=p.slice(base.length-1);` +
+    `if(inside==='/index.html'||inside==='')inside='/';` +
+    `history.replaceState(null,'',inside+window.location.search+window.location.hash);` +
+    `}` +
+    `document.addEventListener('click',function(e){` +
+    `if(e.defaultPrevented||e.button!==0)return;` +
+    `if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;` +
+    `var a=e.target&&e.target.closest&&e.target.closest('a');` +
+    `if(!a)return;` +
+    `var href=a.getAttribute('href');` +
+    `if(!href||href.charAt(0)!=='/'||href.charAt(1)==='/')return;` +
+    `if(a.target&&a.target!=='_self')return;` +
+    `e.preventDefault();` +
+    `history.pushState(null,'',href);` +
+    `window.dispatchEvent(new PopStateEvent('popstate'));` +
+    `});` +
+    `})();` +
+    `</script>`;
+
+  const patched = html.replace(/<head[^>]*>/i, (m) => m + injection);
+  if (patched === html) return;
+  fs.writeFileSync(indexPath, patched);
+  console.log(`[copy-projects] ${slug}: patched index.html for iframe routing`);
+}
+
 function main() {
   if (!fs.existsSync(PROJECTS_SRC)) {
     console.log('[copy-projects] no projects/ folder — nothing to stage');
@@ -73,6 +125,7 @@ function main() {
     if (outputName) {
       fs.cpSync(path.join(srcDir, outputName), destDir, { recursive: true });
       console.log(`[copy-projects] ${name}: copied ${outputName}/`);
+      patchIndexForIframe(destDir, name);
       continue;
     }
 
@@ -89,6 +142,7 @@ function main() {
       );
     }
     console.log(`[copy-projects] ${name}: copied folder (no dist/ or build/)`);
+    patchIndexForIframe(destDir, name);
   }
 
   console.log('[copy-projects] done');
