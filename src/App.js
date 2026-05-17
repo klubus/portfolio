@@ -25,7 +25,6 @@ const ProjectLayout = () => (
   <div className="App">
     <ProjectNavBar />
     <ProjectPage />
-    <Footer />
   </div>
 );
 

@@ -553,6 +553,16 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
   padding: 50px 60px;
   color: #fff;
 }
+.project-page-fullscreen {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  border: none;
+  display: block;
+  background: #1a1a1a;
+}
 .project-page-image {
   width: 100%;
   border-radius: 30px;
