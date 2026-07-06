@@ -1,5 +1,3 @@
-import projImg1 from '../assets/img/project-img1.png';
-import projImg2 from '../assets/img/project-img2.png';
 import elTigreThumb from '../assets/img/el-tigre-thumb.png';
 import waiterAppThumb from '../assets/img/waiter-app-thumb.png';
 import pizzeriaThumb from '../assets/img/project-pizzeria-thumb.png';
@@ -64,26 +62,5 @@ export const projects = [
     embedUrl: process.env.PUBLIC_URL + '/projects/project-pizzeria/index.html',
     category: 'fullstack',
     tech: ['HTML', 'Sass', 'JavaScript', 'ES Modules'],
-  },
-  {
-    slug: 'example-vibe-1',
-    title: 'Vibe Coded App',
-    description: 'AI-Assisted Project',
-    longDescription:
-      'A project built with the help of AI tools. Replace with real content explaining the workflow and the role AI played.',
-    imgUrl: projImg1,
-    githubUrl: 'https://github.com/klubus/example-vibe-1',
-    category: 'vibe',
-    tech: ['Cursor', 'React', 'Tailwind'],
-  },
-  {
-    slug: 'example-vibe-2',
-    title: 'Another Vibe Project',
-    description: 'AI-Assisted Project',
-    longDescription: 'Replace with real content.',
-    imgUrl: projImg2,
-    githubUrl: 'https://github.com/klubus/example-vibe-2',
-    category: 'vibe',
-    tech: ['Claude Code', 'Next.js', 'Supabase'],
   },
 ];

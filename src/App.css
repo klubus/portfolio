@@ -738,6 +738,31 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
 }
+.vibe-note {
+  margin: 40px auto 0 auto;
+  width: 72%;
+  padding: 28px 36px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  background-color: rgb(255 255 255 / 6%);
+}
+.vibe-note p {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+.vibe-note a {
+  color: #fff;
+  font-weight: 600;
+}
+.vibe-note .vibe-note-claude {
+  margin-top: 16px;
+  font-style: italic;
+  background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 .proj-imgbx {
   position: relative;
   border-radius: 30px;
@@ -897,7 +922,7 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
 
 /************ Footer Css ************/
 .footer {
-  padding: 0 0 50px 0;
+  padding: 50px 0;
   background-image: url('./assets/img/footer-bg.png');
   background-position: center center;
   background-size: cover;
@@ -965,6 +990,12 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
 }
 .footer img {
   width: 26%;
+}
+.footer-brand {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
 }
 .footer p {
   font-weight: 400;

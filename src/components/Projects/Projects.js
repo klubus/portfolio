@@ -59,6 +59,28 @@ export const Projects = () => {
                             <ProjectCard key={project.slug} {...project} />
                           ))}
                         </Row>
+                        <div className="vibe-note">
+                          <p>
+                            This portfolio itself is a vibe coding project — it
+                            was built with{' '}
+                            <a
+                              href="https://claude.com/claude-code"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Claude Code
+                            </a>
+                            , Anthropic&apos;s AI coding agent, working side by
+                            side with me in the terminal.
+                          </p>
+                          <p className="vibe-note-claude">
+                            A word from Claude: &ldquo;Vibe coding isn&apos;t
+                            about pressing a magic button — Krystian reviewed,
+                            questioned and steered every step. The best code we
+                            wrote here came from that back-and-forth. It takes
+                            two to vibe.&rdquo;
+                          </p>
+                        </div>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
