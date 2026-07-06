@@ -1,8 +1,10 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { projects } from '../../data/projects';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export const ProjectPage = () => {
   const { slug } = useParams();
+  const { lang } = useLanguage();
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
@@ -30,7 +32,9 @@ export const ProjectPage = () => {
             className="project-page-image"
           />
           <h1>{project.title}</h1>
-          <p className="project-page-tagline">{project.description}</p>
+          <p className="project-page-tagline">
+            {project.description[lang] || project.description.en}
+          </p>
           {project.tech && project.tech.length > 0 && (
             <div className="project-page-tech">
               {project.tech.map((t) => (
@@ -38,7 +42,9 @@ export const ProjectPage = () => {
               ))}
             </div>
           )}
-          <p className="project-page-desc">{project.longDescription}</p>
+          <p className="project-page-desc">
+            {project.longDescription[lang] || project.longDescription.en}
+          </p>
         </div>
       </div>
     </section>

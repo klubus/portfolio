@@ -4,8 +4,10 @@ import { projects } from '../../data/projects';
 import colorSharp2 from '../../assets/img/color-sharp2.png';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export const Projects = () => {
+  const { t } = useLanguage();
   const fullStackProjects = projects.filter((p) => p.category === 'fullstack');
   const vibeProjects = projects.filter((p) => p.category === 'vibe');
 
@@ -21,12 +23,8 @@ export const Projects = () => {
                     isVisible ? 'animate__animated animate__fadeIn' : ''
                   }
                 >
-                  <h2>Projects</h2>
-                  <p>
-                    A collection of projects I have built — Full Stack
-                    applications from my development journey, and AI-assisted
-                    projects exploring modern vibe coding tools.
-                  </p>
+                  <h2>{t('projects.heading')}</h2>
+                  <p>{t('projects.intro')}</p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav
                       variant="pills"
@@ -34,10 +32,14 @@ export const Projects = () => {
                       id="pills-tab"
                     >
                       <Nav.Item>
-                        <Nav.Link eventKey="first">Full Stack apps</Nav.Link>
+                        <Nav.Link eventKey="first">
+                          {t('projects.tabFullstack')}
+                        </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="second">Vibe Coding apps</Nav.Link>
+                        <Nav.Link eventKey="second">
+                          {t('projects.tabVibe')}
+                        </Nav.Link>
                       </Nav.Item>
                     </Nav>
                     <Tab.Content
@@ -61,8 +63,7 @@ export const Projects = () => {
                         </Row>
                         <div className="vibe-note">
                           <p>
-                            This portfolio itself is a vibe coding project — it
-                            was built with{' '}
+                            {t('projects.vibeNote1a')}
                             <a
                               href="https://claude.com/claude-code"
                               target="_blank"
@@ -70,15 +71,10 @@ export const Projects = () => {
                             >
                               Claude Code
                             </a>
-                            , Anthropic&apos;s AI coding agent, working side by
-                            side with me in the terminal.
+                            {t('projects.vibeNote1b')}
                           </p>
                           <p className="vibe-note-claude">
-                            A word from Claude: &ldquo;Vibe coding isn&apos;t
-                            about pressing a magic button — Krystian reviewed,
-                            questioned and steered every step. The best code we
-                            wrote here came from that back-and-forth. It takes
-                            two to vibe.&rdquo;
+                            {t('projects.vibeNoteClaude')}
                           </p>
                         </div>
                       </Tab.Pane>

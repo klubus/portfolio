@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChatDotsFill, XLg, SendFill, Robot } from 'react-bootstrap-icons';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
 const MODEL =
@@ -27,17 +28,12 @@ Rules:
 - Do not invent facts that are not listed above. If you do not know, say the real Krystian would be happy to answer - point to LinkedIn.
 - Keep answers short: 1-3 sentences unless the visitor asks for details.`;
 
-const INITIAL_MESSAGES = [
-  {
-    role: 'assistant',
-    content:
-      "Hi! I'm Krystian's Digital Twin 🤖 Ask me anything about his career, skills or projects. English and Polish are both fine!",
-  },
-];
-
 export const DigitalTwin = () => {
+  const { lang, t } = useLanguage();
   const [open, setOpen] = useState(true);
-  const [messages, setMessages] = useState(INITIAL_MESSAGES);
+  const [messages, setMessages] = useState([
+    { role: 'assistant', content: t('twin.greeting') },
+  ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const listRef = useRef(null);
@@ -47,6 +43,17 @@ export const DigitalTwin = () => {
       listRef.current.scrollTop = listRef.current.scrollHeight;
     }
   }, [messages, loading, open]);
+
+  // Swap the greeting when the site language changes, but only while
+  // the visitor has not started the conversation yet.
+  useEffect(() => {
+    setMessages((prev) =>
+      prev.length === 1 && prev[0].role === 'assistant'
+        ? [{ role: 'assistant', content: t('twin.greeting') }]
+        : prev,
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang]);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -60,11 +67,7 @@ export const DigitalTwin = () => {
     if (!API_KEY) {
       setMessages([
         ...nextMessages,
-        {
-          role: 'assistant',
-          content:
-            'The chat is not configured yet (missing API key). Please reach out to Krystian on LinkedIn instead!',
-        },
+        { role: 'assistant', content: t('twin.notConfigured') },
       ]);
       return;
     }
@@ -103,11 +106,7 @@ export const DigitalTwin = () => {
     } catch (err) {
       setMessages([
         ...nextMessages,
-        {
-          role: 'assistant',
-          content:
-            'Sorry, something went wrong on my side. Please try again in a moment.',
-        },
+        { role: 'assistant', content: t('twin.error') },
       ]);
     } finally {
       setLoading(false);
@@ -121,8 +120,8 @@ export const DigitalTwin = () => {
           <div className="digital-twin-header">
             <Robot size={22} />
             <div>
-              <h4>Digital Twin</h4>
-              <span>AI version of Krystian</span>
+              <h4>{t('twin.title')}</h4>
+              <span>{t('twin.subtitle')}</span>
             </div>
             <button
               type="button"
@@ -151,7 +150,7 @@ export const DigitalTwin = () => {
             <input
               type="text"
               value={input}
-              placeholder="Ask about Krystian..."
+              placeholder={t('twin.placeholder')}
               onChange={(e) => setInput(e.target.value)}
             />
             <button type="submit" aria-label="Send" disabled={loading}>

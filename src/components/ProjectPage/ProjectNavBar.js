@@ -1,9 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
 import { projects } from '../../data/projects';
 import navIcon2 from '../../assets/img/nav-icon2.svg';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export const ProjectNavBar = () => {
   const { slug } = useParams();
+  const { t } = useLanguage();
   const project = projects.find((p) => p.slug === slug);
 
   return (
@@ -11,7 +13,7 @@ export const ProjectNavBar = () => {
       <div className="container project-navbar-inner">
         <Link to="/#projects" className="project-navbar-link">
           <span className="project-navbar-arrow">←</span>
-          <span>Go back to portfolio</span>
+          <span>{t('projectPage.back')}</span>
         </Link>
         {project?.githubUrl && (
           <a
@@ -21,7 +23,7 @@ export const ProjectNavBar = () => {
             className="project-navbar-link"
           >
             <img src={navIcon2} alt="" className="project-navbar-icon" />
-            <span>Check GitHub repo</span>
+            <span>{t('projectPage.github')}</span>
           </a>
         )}
       </div>

@@ -124,6 +124,34 @@ span.navbar-text {
   display: flex;
   align-items: center;
 }
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 18px;
+}
+.lang-switch button {
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.lang-switch button:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+.lang-switch button.active {
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 2px solid #aa367c;
+}
+.lang-switch-divider {
+  color: rgba(255, 255, 255, 0.35);
+}
 .social-icon {
   display: inline-block;
   margin-left: 14px;

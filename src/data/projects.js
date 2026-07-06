@@ -30,9 +30,14 @@ export const projects = [
   {
     slug: 'el-tigre',
     title: 'El Tigre',
-    description: 'Coffee shop landing page',
-    longDescription:
-      'A landing page for a fictional Venezuelan coffee brand, with product listing, hero rotation, and contact section. Built with vanilla JavaScript, Sass and Handlebars templates, with product data served from a JSON file.',
+    description: {
+      en: 'Coffee shop landing page',
+      pl: 'Landing page marki kawowej',
+    },
+    longDescription: {
+      en: 'A landing page for a fictional Venezuelan coffee brand, with product listing, hero rotation, and contact section. Built with vanilla JavaScript, Sass and Handlebars templates, with product data served from a JSON file.',
+      pl: 'Landing page fikcyjnej wenezuelskiej marki kawy, z listą produktów, rotującym hero i sekcją kontaktową. Zbudowany w czystym JavaScripcie, Sass i szablonach Handlebars, z danymi produktów serwowanymi z pliku JSON.',
+    },
     imgUrl: elTigreThumb,
     githubUrl: 'https://github.com/klubus/project-el-tigre',
     embedUrl: process.env.PUBLIC_URL + '/projects/el-tigre/index.html',
@@ -42,9 +47,14 @@ export const projects = [
   {
     slug: 'waiter-app',
     title: 'Waiter App',
-    description: 'Restaurant table management',
-    longDescription:
-      'TODO — replace with real description of the project, features, and what it demonstrates.',
+    description: {
+      en: 'Restaurant table management',
+      pl: 'Zarządzanie stolikami w restauracji',
+    },
+    longDescription: {
+      en: 'TODO — replace with real description of the project, features, and what it demonstrates.',
+      pl: 'TODO — uzupełnij prawdziwy opis projektu, funkcji i tego, co pokazuje.',
+    },
     imgUrl: waiterAppThumb,
     githubUrl: 'https://github.com/klubus/waiter-app',
     embedUrl: process.env.PUBLIC_URL + '/projects/waiter-app/index.html',
@@ -54,9 +64,14 @@ export const projects = [
   {
     slug: 'project-pizzeria',
     title: 'Pizzeria',
-    description: 'Online pizzeria with menu, cart and booking',
-    longDescription:
-      'TODO — replace with real description of the project, features, and what it demonstrates.',
+    description: {
+      en: 'Online pizzeria with menu, cart and booking',
+      pl: 'Internetowa pizzeria z menu, koszykiem i rezerwacjami',
+    },
+    longDescription: {
+      en: 'TODO — replace with real description of the project, features, and what it demonstrates.',
+      pl: 'TODO — uzupełnij prawdziwy opis projektu, funkcji i tego, co pokazuje.',
+    },
     imgUrl: pizzeriaThumb,
     githubUrl: 'https://github.com/klubus/project-pizzeria',
     embedUrl: process.env.PUBLIC_URL + '/projects/project-pizzeria/index.html',

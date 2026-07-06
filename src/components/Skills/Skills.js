@@ -1,6 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import colorSharp from '../../assets/img/color-sharp.png';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const SkillCircle = ({ percent, id }) => {
   const size = 204;
@@ -85,6 +86,7 @@ const aiSkills = [
 ];
 
 export const Skills = () => {
+  const { t } = useLanguage();
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -110,9 +112,9 @@ export const Skills = () => {
         <div className="row">
           <div className="col-12">
             <div className="skill-bx wow zoomIn">
-              <h2>Skills</h2>
+              <h2>{t('skills.heading')}</h2>
               <div className="skills-details">
-                <h3>Full Stack</h3>
+                <h3>{t('skills.fullstack')}</h3>
                 <Carousel
                   responsive={responsive}
                   infinite={true}
@@ -127,7 +129,7 @@ export const Skills = () => {
                 </Carousel>
               </div>
               <div className="skills-details">
-                <h3>Vibe Coding</h3>
+                <h3>{t('skills.vibe')}</h3>
                 <Carousel
                   responsive={responsive}
                   infinite={true}

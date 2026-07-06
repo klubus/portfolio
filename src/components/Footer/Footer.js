@@ -1,8 +1,10 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import navIcon1 from '../../assets/img/nav-icon1.svg';
 import navIcon2 from '../../assets/img/nav-icon2.svg';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="footer">
       <Container>
@@ -27,7 +29,7 @@ export const Footer = () => {
                 <img src={navIcon2} alt="GitHub" />
               </a>
             </div>
-            <p>Copyright 2026. All Rights Reserved</p>
+            <p>{t('footer.copyright')}</p>
           </Col>
         </Row>
       </Container>

@@ -4,14 +4,16 @@ import headerImg from '../../assets/img/header-img.svg';
 import avatar from '../../assets/img/avatar.png';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export const Banner = () => {
+  const { t } = useLanguage();
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ['Full Stack Developer', 'Vibe Coder'];
+  const toRotate = t('banner.rotate');
   const period = 2000;
 
   useEffect(() => {
@@ -63,37 +65,19 @@ export const Banner = () => {
                     isVisible ? 'animate__animated animate__fadeIn' : ''
                   }
                 >
-                  <span className="tagline">Welcome to my Portfolio</span>
+                  <span className="tagline">{t('banner.tagline')}</span>
                   <div className="avatar">
-                    <img src={avatar} alt="mm"></img>
+                    <img src={avatar} alt="Krystian Kluba"></img>
                   </div>
                   <h1>
-                    {`Hi! I'm Krystian`}
+                    {t('banner.greeting')}
                     <br></br>{' '}
-                    <span
-                      className="txt-rotate"
-                      dataPeriod="1000"
-                      data-rotate='[ "Web Developer", "Vibe Coder", "UI/UX Designer" ]'
-                    >
+                    <span className="txt-rotate">
                       <span className="wrap">{text}</span>
                     </span>
                   </h1>
-                  <p>
-                    I have been working in the IT industry for nearly 5 years,
-                    primarily as a tester. Throughout my career, I have gained
-                    extensive experience with tools and technologies such as
-                    Git (including independent release management), and with
-                    programming languages like C#, JavaScript, and TypeScript.
-                    On a daily basis, I use Playwright for test automation. I
-                    also have a working knowledge of SQL and basic Linux
-                    skills.
-                  </p>
-                  <p>
-                    Recently, I obtained the Atlassian certification (ACP-620)
-                    for Jira and passed the FCE (B2 English) exam. I am
-                    always on the lookout for new challenges — feel free to
-                    check out my projects on GitHub.
-                  </p>
+                  <p>{t('banner.p1')}</p>
+                  <p>{t('banner.p2')}</p>
                 </div>
               )}
             </TrackVisibility>

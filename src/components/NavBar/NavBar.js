@@ -3,10 +3,12 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import navIcon1 from '../../assets/img/nav-icon1.svg';
 import navIcon2 from '../../assets/img/nav-icon2.svg';
 import { HashLink } from 'react-router-hash-link';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,6 +31,23 @@ export const NavBar = () => {
   return (
     <Navbar expand="md" className={scrolled ? 'scrolled' : ''}>
       <Container>
+        <div className="lang-switch">
+          <button
+            type="button"
+            className={lang === 'pl' ? 'active' : ''}
+            onClick={() => setLang('pl')}
+          >
+            PL
+          </button>
+          <span className="lang-switch-divider">/</span>
+          <button
+            type="button"
+            className={lang === 'en' ? 'active' : ''}
+            onClick={() => setLang('en')}
+          >
+            EN
+          </button>
+        </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
@@ -42,7 +61,7 @@ export const NavBar = () => {
               }
               onClick={() => onUpdateActiveLink('home')}
             >
-              Home
+              {t('nav.home')}
             </Nav.Link>
             <Nav.Link
               as={HashLink}
@@ -52,7 +71,7 @@ export const NavBar = () => {
               }
               onClick={() => onUpdateActiveLink('about')}
             >
-              About Me
+              {t('nav.about')}
             </Nav.Link>
             <Nav.Link
               as={HashLink}
@@ -62,7 +81,7 @@ export const NavBar = () => {
               }
               onClick={() => onUpdateActiveLink('skills')}
             >
-              Skills
+              {t('nav.skills')}
             </Nav.Link>
             <Nav.Link
               as={HashLink}
@@ -74,7 +93,7 @@ export const NavBar = () => {
               }
               onClick={() => onUpdateActiveLink('projects')}
             >
-              Projects
+              {t('nav.projects')}
             </Nav.Link>
           </Nav>
           <span className="navbar-text">

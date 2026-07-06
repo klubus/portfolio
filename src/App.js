@@ -7,6 +7,7 @@ import { Skills } from './components/Skills/Skills.js';
 import { Projects } from './components/Projects/Projects.js';
 import { Footer } from './components/Footer/Footer.js';
 import { DigitalTwin } from './components/DigitalTwin/DigitalTwin.js';
+import { LanguageProvider } from './i18n/LanguageContext.js';
 import { ProjectPage } from './components/ProjectPage/ProjectPage.js';
 import { ProjectNavBar } from './components/ProjectPage/ProjectNavBar.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -32,12 +33,14 @@ const ProjectLayout = () => (
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <Routes>
-        <Route path="/" element={<HomeLayout />} />
-        <Route path="/project/:slug" element={<ProjectLayout />} />
-      </Routes>
-    </Router>
+    <LanguageProvider>
+      <Router basename={process.env.PUBLIC_URL}>
+        <Routes>
+          <Route path="/" element={<HomeLayout />} />
+          <Route path="/project/:slug" element={<ProjectLayout />} />
+        </Routes>
+      </Router>
+    </LanguageProvider>
   );
 }
 
