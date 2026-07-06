@@ -91,8 +91,8 @@ export const Banner = () => {
                   <p>
                     Recently, I obtained the Atlassian certification (ACP-620)
                     for Jira and passed the FCE (B2 English) exam. I am
-                    currently looking to transition into a software developer
-                    role — feel free to check out my projects on GitHub.
+                    always on the lookout for new challenges — feel free to
+                    check out my projects on GitHub.
                   </p>
                 </div>
               )}
