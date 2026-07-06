@@ -6,13 +6,11 @@ const PROJECTS_SRC = path.join(ROOT, 'projects');
 const PROJECTS_DEST = path.join(ROOT, 'public', 'projects');
 
 // The base href injected into each project's index.html must match the
-// URL the portfolio is actually served from. CRA dev server serves at /
-// regardless of homepage, while the build emits assets at the homepage
-// prefix. We pick the prefix based on which npm script triggered us:
-// prestart = dev (no prefix), prebuild = production build (homepage prefix).
+// URL the portfolio is actually served from. CRA 5 serves public/ under
+// the homepage prefix in both dev (webpack-dev-server publicPath) and
+// production builds, so the prefix always applies.
 const PKG = require(path.join(ROOT, 'package.json'));
-const IS_BUILD = process.env.npm_lifecycle_event === 'prebuild';
-const PUBLIC_PREFIX = IS_BUILD ? (PKG.homepage || '').replace(/\/$/, '') : '';
+const PUBLIC_PREFIX = (PKG.homepage || '').replace(/\/$/, '');
 
 // Build-output folders we look for, in priority order.
 const OUTPUT_CANDIDATES = ['dist', 'build'];
