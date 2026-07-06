@@ -844,6 +844,170 @@ nav.navbar .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon {
   z-index: -4;
 }
 
+/************ Digital Twin Chat Css ************/
+.digital-twin {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+.digital-twin-toggle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: 0.3s ease-in-out;
+}
+.digital-twin-toggle:hover {
+  transform: scale(1.08);
+}
+.digital-twin-panel {
+  width: 350px;
+  max-width: calc(100vw - 48px);
+  height: 480px;
+  max-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #151515;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+.digital-twin-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  color: #fff;
+}
+.digital-twin-header h4 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+.digital-twin-header span {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.digital-twin-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+}
+.digital-twin-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.digital-twin-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.45;
+  letter-spacing: 0.3px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.digital-twin-msg.assistant {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.08);
+  color: #eaeaea;
+  border-bottom-left-radius: 4px;
+}
+.digital-twin-msg.user {
+  align-self: flex-end;
+  background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.digital-twin-msg.typing {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.digital-twin-msg.typing span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b8b8b8;
+  animation: digital-twin-blink 1.2s infinite ease-in-out;
+}
+.digital-twin-msg.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.digital-twin-msg.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes digital-twin-blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+.digital-twin-input {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.digital-twin-input input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  color: #fff;
+  padding: 10px 14px;
+  font-size: 14px;
+  outline: none;
+}
+.digital-twin-input input::placeholder {
+  color: #8a8a8a;
+}
+.digital-twin-input input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.digital-twin-input button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.digital-twin-input button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 /************ Footer Css ************/
 .footer {
   padding: 50px 0;

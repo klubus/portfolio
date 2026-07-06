@@ -6,6 +6,7 @@ import { About } from './components/About/About.js';
 import { Skills } from './components/Skills/Skills.js';
 import { Projects } from './components/Projects/Projects.js';
 import { Footer } from './components/Footer/Footer.js';
+import { DigitalTwin } from './components/DigitalTwin/DigitalTwin.js';
 import { ProjectPage } from './components/ProjectPage/ProjectPage.js';
 import { ProjectNavBar } from './components/ProjectPage/ProjectNavBar.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,6 +19,7 @@ const HomeLayout = () => (
     <Skills />
     <Projects />
     <Footer />
+    <DigitalTwin />
   </div>
 );
 
